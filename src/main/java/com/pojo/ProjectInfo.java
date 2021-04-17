@@ -22,7 +22,7 @@ public class ProjectInfo {
     private String projectStatus;
 
     public ProjectInfo() {
-        
+
     }
 
     public ProjectInfo(String projectID, String projectTitle, String projectClient, String contactInfo,

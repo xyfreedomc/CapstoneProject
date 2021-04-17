@@ -3,6 +3,8 @@ package com.pojo;
 import java.util.Objects;
 
 public class UserInfo {
+    private String SID;
+
     private String password;
 
     private String userType;
@@ -17,12 +19,21 @@ public class UserInfo {
 
     }
 
-    public UserInfo(String password, String userType, String groupID, String firstName, String lastName) {
+    public UserInfo(String SID, String password, String userType, String groupID, String firstName, String lastName) {
+        this.SID = SID;
         this.password = password;
         this.userType = userType;
         this.groupID = groupID;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public String getSID() {
+        return SID;
+    }
+
+    public void setSID(String SID) {
+        this.SID = SID;
     }
 
     public String getPassword() {
@@ -70,11 +81,11 @@ public class UserInfo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserInfo userInfo = (UserInfo) o;
-        return Objects.equals(password, userInfo.password) && Objects.equals(userType, userInfo.userType) && Objects.equals(groupID, userInfo.groupID) && Objects.equals(firstName, userInfo.firstName) && Objects.equals(lastName, userInfo.lastName);
+        return Objects.equals(SID, userInfo.SID) && Objects.equals(password, userInfo.password) && Objects.equals(userType, userInfo.userType) && Objects.equals(groupID, userInfo.groupID) && Objects.equals(firstName, userInfo.firstName) && Objects.equals(lastName, userInfo.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(password, userType, groupID, firstName, lastName);
+        return Objects.hash(SID, password, userType, groupID, firstName, lastName);
     }
 }
