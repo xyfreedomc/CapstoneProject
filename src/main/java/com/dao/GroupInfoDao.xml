@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.GroupInfoDao">
+    <select id="findAll" resultType="com.pojo.GroupInfo">
+        select * from groupinfo;
+    </select>
+
+    <update id="changePre" parameterType="com.pojo.GroupInfo">
+        update groupinfo
+        set projectPre1 = #{projectPre1},
+            projectPre2 = #{projectPre2},
+            projectPre3 = #{projectPre3}
+        where groupID = #{groupID}
+    </update>
+</mapper>

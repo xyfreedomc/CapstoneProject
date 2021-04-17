@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserInfoDao">
+    <select id="findById" resultType="com.pojo.UserInfo">
+        select * from userinfo where SID = #{sid};
+    </select>
+
+    <update id="changeGroup">
+        update userinfo
+        set groupID = #{groupID}
+        where SID = #{SID};
+    </update>
+
+    <select id="selectAll" resultType="com.pojo.UserInfo">
+        select * from userinfo;
+    </select>
+    
+    <update id="changePassword">
+        update userinfo
+        set password = #{password}
+        where SID = #{SID}
+    </update>
+
+    <insert id="addStudent" useGeneratedKeys="true" keyProperty="id" parameterType="com.pojo.UserInfo">
+        insert into userinfo (password, usertype, groupid, firstname, lastname)
+        values(
+               #{password},
+               #{usertype},
+               #{groupid},
+               #{firstname},
+               #{lastname}
+              )
+    </insert>
+</mapper>
+
